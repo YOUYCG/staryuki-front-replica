@@ -1,0 +1,7 @@
+.sound-toggle{position:fixed;right:16px;bottom:38px;z-index:80;min-height:34px;padding:8px 10px;border:1px solid #c0fe0440;border-radius:0;background:#020202e8;color:#c0fe04;font:11px/1.3 "MonoSpec",ppFraktionMono,Consolas,monospace;letter-spacing:.04em;cursor:pointer}
+.sound-toggle:hover{color:#000;background:#c0fe04;border-color:#c0fe04}
+.sound-toggle:focus-visible{outline:1px dashed #c0fe04;outline-offset:4px}
+.sound-toggle[aria-pressed=false]{color:#758d3c;border-color:#758d3c60}
+.sound-toggle[aria-pressed=false]:hover{color:#000}
+@media(max-width:700px){.sound-toggle{right:10px;bottom:32px;min-height:32px;font-size:10px;padding:7px}}
+@media(max-height:460px){.sound-toggle{bottom:22px;right:9px}}

@@ -1,0 +1,21 @@
+{
+  "name": "staryuki-front-replica",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Standalone STAR.CORE frontend reproduction",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs",
+    "check": "node verify.mjs"
+  },
+  "author": "YOUYCG",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUYCG/staryuki-front-replica.git"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

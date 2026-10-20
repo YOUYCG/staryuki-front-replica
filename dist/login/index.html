@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="STAR.CORE terminal frontend demonstration. Local interactions only.">
+  <meta name="color-scheme" content="dark">
+  <title>STAR.CORE / ACCESS TERMINAL</title>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/login.css">
+  <link rel="stylesheet" href="/sound.css">
+  <script src="/sound.js" defer></script>
+  <script src="/login.js" defer></script>
+</head>
+<body>
+  <main class="terminal" id="terminal" data-phase="boot">
+    <canvas class="debris" id="debris" aria-hidden="true"></canvas>
+    <div class="screen-texture" aria-hidden="true"></div>
+    <div class="chrome chrome-tl" id="connection-label">Opening Connection to Server 𝟶.4.5-23</div>
+    <div class="chrome chrome-tr">931.461.0337</div>
+    <div class="chrome chrome-bl">CAS.term/CyberAcme Systems, Inc.</div>
+    <div class="chrome chrome-br">&lt;931.461.60231.14.vt920&gt;</div>
+
+    <section class="boot-screen" id="boot-screen" aria-label="Terminal connection">
+      <div class="boot-copy" id="boot-copy" aria-live="polite">
+        <div>Opening Connection to Server 𝟶.4.5-23</div>
+        <div>Acquiring secure channel................ OK</div>
+        <div>Protocol initialized. Awaiting handshake.</div>
+        <div>SYSTEM : connection established.</div>
+      </div>
+      <button class="transmit" id="transmit" type="button">[ TRANSMIT ]</button>
+      <button class="skip" id="skip" type="button">[ SKIP ]</button>
+    </section>
+
+    <section class="access-screen" id="access-screen" aria-label="Access terminal" hidden>
+      <div class="access-content" id="access-content">
+        <div class="reg-mark reg-tl" aria-hidden="true">+</div>
+        <div class="reg-mark reg-tr" aria-hidden="true">+</div>
+        <div class="reg-mark reg-bl" aria-hidden="true">+</div>
+        <div class="reg-mark reg-br" aria-hidden="true">+</div>
+        <div class="ticker-row" aria-hidden="true"></div>
+        <div class="ticker-row" aria-hidden="true"></div>
+        <div class="access-core">
+          <div class="dotted-border" aria-hidden="true"></div>
+          <form class="access-panel" id="access-form" autocomplete="off" novalidate>
+            <div class="status" id="status">
+              <h1 id="status-title">TERMINAL LOCKED</h1>
+              <p id="status-subtitle">PRESENT DATA ACCESS CARD ID</p>
+            </div>
+            <div class="input-wrap" id="input-wrap">
+              <label for="access-code" class="sr-only">7 位演示访问卡编号</label>
+              <div class="slots" id="slots" aria-hidden="true">
+                <span class="slot"><span class="glyph">c</span></span>
+                <span class="slot"><span class="glyph">c</span></span>
+                <span class="slot"><span class="glyph">c</span></span>
+                <span class="slot"><span class="glyph">c</span></span>
+                <span class="slot"><span class="glyph">c</span></span>
+                <span class="slot"><span class="glyph">c</span></span>
+                <span class="slot"><span class="glyph">c</span></span>
+              </div>
+              <input id="access-code" class="capture" name="demo-code" type="text" maxlength="7" pattern="[A-Za-z0-9]{7}" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" inputmode="text" enterkeyhint="go" aria-describedby="feedback demo-hint" aria-label="7 位演示访问卡编号">
+            </div>
+            <p class="feedback" id="feedback" role="status" aria-live="polite">personal use only</p>
+            <button class="submit-key" id="submit-key" type="submit" aria-label="验证演示访问卡">[ ENTER ]</button>
+          </form>
+          <div class="dotted-border" aria-hidden="true"></div>
+        </div>
+        <div class="ticker-row" aria-hidden="true"></div>
+        <div class="ticker-row" aria-hidden="true"></div>
+        <p class="demo-hint" id="demo-hint">DEMO ACCESS CARD: <button id="use-demo" type="button" aria-label="填入演示访问卡 STAR123">STAR123</button></p>
+      </div>
+    </section>
+
+    <footer class="terminal-footer">
+      <a href="/" class="home-link">[ RETURN TO HOME ]</a>
+      <p>LOCAL DEMO / NO DATA TRANSMITTED</p>
+    </footer>
+    <noscript><p class="no-script">请启用 JavaScript 体验终端交互。 <a href="/">返回首页</a></p></noscript>
+  </main>
+</body>
+</html>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="geist_deef94d5-module__Sms4YG__variable geist_mono_1bf8cbf6-module__FlyLvG__variable h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="STAR.CORE 前端视觉复刻 — 交互式 PEONIA、系统状态与访问终端。">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="color-scheme" content="dark">
+  <title>STAR.CORE</title>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/_next/static/chunks/24zajq831_ntf.css">
+  <link rel="stylesheet" href="/_next/static/chunks/32-rby0fp_0f4.css">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/sound.css">
+  <script src="/sound.js" defer></script>
+  <script src="/vendor/p5.min.js" defer></script>
+  <script src="/peonia.js" defer></script>
+  <script src="/app.js" defer></script><script src="/effects.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#statistics">Skip to system status</a>
+<main class="marathon-home min-h-screen overflow-hidden bg-black text-white">
+<canvas class="interactive-dot-field " aria-hidden="true">
+</canvas>
+<div class="marathon-noise" aria-hidden="true">
+</div>
+<div class="marathon-header-reveal-square" aria-hidden="true">
+</div>
+<header class="marathon-topbar fixed inset-x-0 top-0 z-50 flex h-[60px] items-center justify-between bg-black">
+<div class="marathon-topbar-logo-bg" aria-hidden="true">
+</div>
+<svg width="391" height="60" viewBox="0 0 391 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="marathon-mobile-topbar-grid" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+<rect width="390" height="60" fill="#1C1C1C">
+</rect>
+<rect x="133.5" width="257" height="60" fill="black">
+</rect>
+<rect x="98.5" width="10" height="10" fill="black">
+</rect>
+<rect x="93.5" y="10" width="5" height="5" fill="black">
+</rect>
+<rect x="123.5" width="10" height="10" fill="black">
+</rect>
+<rect x="98.5" y="35" width="10" height="10" fill="black">
+</rect>
+<rect x="88.5" y="45" width="10" height="10" fill="black">
+</rect>
+<rect x="108.5" y="10" width="15" height="25" fill="black">
+</rect>
+<rect x="123.5" y="35" width="15" height="25" fill="black">
+</rect>
+<rect x="133.5" y="50" width="10" height="10" fill="black">
+</rect>
+</svg>
+<a class="marathon-topbar-logo logo-appear-animation" aria-label="STAR.CORE" href="/">
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="-543 -543 2340 2340" fill="none" class="hidden md:block" aria-hidden="true">
+<g id="star_frame" aria-label="Star Frame">
+<path d="M 164,402 164,536 379,723 293,1018 293,1096 404,1096 630,921 850,1096 961,1096 961,1018 875,723 1095,537 1095,401 807,401 686,145 576,145 455,401 Z M 250,483 505,483 629,224 755,482 1010,482 792,694 855,980 631,819 408,980 471,694 250,501 Z" fill="#C0FE04" fill-rule="evenodd" clip-rule="evenodd">
+</path>
+</g>
+<g id="accent_top_right" aria-label="Accent Top Right">
+<polygon points="1009,190 948,190 827,313 827,363 886,361 1009,237" fill="#C0FE04">
+</polygon>
+</g>
+<g id="accent_bottom_left" aria-label="Accent Bottom Left">
+<polygon points="327,760 280,760 159,882 159,937 203,937 327,812" fill="#C0FE04">
+</polygon>
+</g>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="-543 -543 2340 2340" fill="none" class="md:hidden" aria-hidden="true">
+<g id="star_frame" aria-label="Star Frame">
+<path d="M 164,402 164,536 379,723 293,1018 293,1096 404,1096 630,921 850,1096 961,1096 961,1018 875,723 1095,537 1095,401 807,401 686,145 576,145 455,401 Z M 250,483 505,483 629,224 755,482 1010,482 792,694 855,980 631,819 408,980 471,694 250,501 Z" fill="rgb(0, 0, 0)" fill-rule="evenodd" clip-rule="evenodd">
+</path>
+</g>
+<g id="accent_top_right" aria-label="Accent Top Right">
+<polygon points="1009,190 948,190 827,313 827,363 886,361 1009,237" fill="rgb(0, 0, 0)">
+</polygon>
+</g>
+<g id="accent_bottom_left" aria-label="Accent Bottom Left">
+<polygon points="327,760 280,760 159,882 159,937 203,937 327,812" fill="rgb(0, 0, 0)">
+</polygon>
+</g>
+</svg>
+</a>
+<nav class="marathon-left-links nav-reveal-animation hidden min-w-0 flex-1 items-center gap-x-7 overflow-x-auto px-8 lg:flex">
+<a class="marathon-nav-link" href="/">
+<span>HOME</span>
+<em>[&gt;]</em>
+</a>
+</nav>
+<div class="marathon-mobile-cta-track relative flex h-[60px] flex-1 items-center md:hidden">
+<div class="marathon-mobile-cta-spacer" style="opacity:1;pointer-events:auto">
+</div>
+<a class="marathon-mobile-cta" style="left:-60px;width:60px" href="/login/">
+<span style="opacity:0">ACCESS</span>
+</a>
+</div>
+<div class="hidden h-[60px] flex-1 items-center justify-end md:flex lg:hidden">
+<a class="marathon-auth-block marathon-auth-block--mid" href="/login/">ACCESS</a>
+</div>
+<div class="relative z-20 flex items-center">
+<div class="cta-blink-animation hidden w-[288px] lg:block">
+<a class="marathon-auth-block marathon-auth-block--single" href="/login/">ACCESS</a>
+</div>
+<button class="marathon-menu-button lg:hidden" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="marathon-mobile-menu">
+<svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<path d="M23.6 16H0.4C0.244 15.844 0.156 15.756 0 15.6V14.4C0.156 14.244 0.244 14.156 0.4 14H23.6C23.756 14.156 23.844 14.244 24 14.4V15.6C23.844 15.756 23.756 15.844 23.6 16Z">
+</path>
+<path d="M23.6 2H0.4C0.244 1.844 0.156 1.756 0 1.6V0.4C0.156 0.244 0.244 0.156 0.4 0H23.6C23.756 0.156 23.844 0.244 24 0.4V1.6C23.844 1.756 23.756 1.844 23.6 2Z">
+</path>
+<path d="M23.6 9H0.4C0.244 8.844 0.156 8.756 0 8.6V7.4C0.156 7.244 0.244 7.156 0.4 7H23.6C23.756 7.156 23.844 7.244 24 7.4V8.6C23.844 8.756 23.756 8.844 23.6 9Z">
+</path>
+</svg>
+</button>
+</div>
+</header>
+<div id="marathon-mobile-menu" class="marathon-mobile-menu " aria-hidden="true">
+<div class="marathon-mobile-menu__inner">
+<a class="marathon-mobile-menu__link" href="/">
+<span>HOME</span>
+<em>[&gt;]</em>
+</a>
+</div>
+</div>
+<section id="access" class="marathon-hero marathon-hero-shell relative z-10 grid min-h-[calc(100vh-60px)] overflow-hidden lg:grid-cols-[minmax(0,1fr)_288px]">
+<div class="marathon-hero-flower relative min-h-[calc(100vh-60px)] overflow-hidden">
+<div class="peonia-hero-bg" aria-hidden="true">
+<div class="peonia-hero-canvas">
+</div>
+</div>
+<div class="peonia-hero-loader" aria-hidden="true">
+<div class="peonia-loader-scan">
+</div>
+<div class="peonia-loader-prompt">
+<span class="peonia-loader-caret">
+</span>
+<span>PEONIA BOOT</span>
+</div>
+<div class="peonia-loader-pct">000<!-- -->%</div>
+<div class="peonia-loader-track">
+<i style="transform:scaleX(0)">
+</i>
+</div>
+<div class="peonia-loader-cells">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</div>
+</div>
+<div class="marathon-hero-shade" aria-hidden="true">
+</div>
+<div class="marathon-mobile-lockup" aria-hidden="true">
+<img alt="" width="538" height="174" decoding="async" class="marathon-mobile-logo" style="color:transparent" src="/img/logo-mobile-new.png"/>
+<div class="marathon-mobile-graphic">
+<img alt="" decoding="async" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" src="/temp/Hero_Graphic_Mobile.svg"/>
+</div>
+</div>
+<div class="marathon-availability-card marathon-availability-card--desktop">
+<div class="marathon-availability-card__content">
+<div class="marathon-availability-card__title">ACCESS AVAILABLE</div>
+<p>ENTER STAR.CORE THROUGH THE AUTH HANDSHAKE. MEDIA REMAINS MASKED UNTIL CLEARANCE RETURNS.</p>
+<div class="marathon-platform-lockup" aria-label="Supported platforms">
+<img alt="Terminal access" loading="lazy" width="92" height="26" decoding="async" class="marathon-platform-logo" style="color:transparent;--platform-logo-width:92px;width:92px" src="/platforms/terminal.svg"/>
+<img alt="MEDIA archive" loading="lazy" width="126" height="26" decoding="async" class="marathon-platform-logo" style="color:transparent;--platform-logo-width:126px;width:126px" src="/platforms/media-archive.svg"/>
+<img alt="Redacted clearance" loading="lazy" width="110" height="26" decoding="async" class="marathon-platform-logo" style="color:transparent;--platform-logo-width:110px;width:110px" src="/platforms/redacted.svg"/>
+</div>
+<a class="marathon-card-join" href="/login/">ACCESS</a>
+</div>
+</div>
+</div>
+<div class="marathon-availability-card marathon-availability-card--mobile">
+<div class="marathon-availability-card__content">
+<div class="marathon-availability-card__title">ACCESS AVAILABLE</div>
+<p>ENTER STAR.CORE THROUGH THE AUTH HANDSHAKE. MEDIA REMAINS MASKED UNTIL CLEARANCE RETURNS.</p>
+<div class="marathon-platform-lockup" aria-label="Supported platforms">
+<img alt="Terminal access" loading="lazy" width="92" height="26" decoding="async" class="marathon-platform-logo" style="color:transparent;--platform-logo-width:92px;width:92px" src="/platforms/terminal.svg"/>
+<img alt="MEDIA archive" loading="lazy" width="126" height="26" decoding="async" class="marathon-platform-logo" style="color:transparent;--platform-logo-width:126px;width:126px" src="/platforms/media-archive.svg"/>
+<img alt="Redacted clearance" loading="lazy" width="110" height="26" decoding="async" class="marathon-platform-logo" style="color:transparent;--platform-logo-width:110px;width:110px" src="/platforms/redacted.svg"/>
+</div>
+<a class="marathon-card-join" href="/login/">ACCESS</a>
+</div>
+</div>
+<aside class="marathon-hero-rail hero-sidebar-bg-fade-animation" aria-label="STAR.CORE system access">
+<div class="marathon-rail-markers" aria-hidden="true">
+<span>+</span>
+<i>
+</i>
+<em>28 96 SI</em>
+</div>
+<div class="marathon-rail-logo marathon-rail-logo--main hero-sidebar-content-fade-animation">
+<img alt="STAR.CORE" decoding="async" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" src="/img/logo-new.png"/>
+</div>
+<div class="marathon-rail-logo marathon-rail-logo--graphic hero-sidebar-content-fade-animation">
+<img alt="" decoding="async" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" src="/temp/Hero_Graphic.svg"/>
+</div>
+</aside>
+</section>
+<section class="starcore-lower relative z-10">
+<section id="statistics" class="marathon-stats-section">
+<div class="starcore-section-title starcore-section-title--stats">
+<span style="min-width:32ch">ACCESS STATISTICS / SIGNAL DRIFT</span>
+</div>
+<div class="marathon-stats-frame">
+<div class="marathon-stats-grid">
+<div class="marathon-stat-row starcore-gsap-panel">
+<span>CYCLES</span>
+<strong>ERR</strong>
+<em>RECORDED USE EVENTS</em>
+</div>
+<div class="marathon-stat-row starcore-gsap-panel">
+<span>SESSIONS</span>
+<strong>ERR</strong>
+<em>WAKE HANDSHAKES</em>
+</div>
+<div class="marathon-stat-row starcore-gsap-panel">
+<span>BREACH</span>
+<strong>ERR</strong>
+<em>INTRUSION ECHOES</em>
+</div>
+<div class="marathon-stat-row starcore-gsap-panel">
+<span>DRIFT</span>
+<strong>ERR</strong>
+<em>LATENT ROUTE NOISE</em>
+</div>
+</div>
+<div class="signal-lost-panel" role="status" aria-label="Access status signal lost">
+<div class="signal-lost-panel__viewport">
+<div class="signal-lost-panel__bar">
+<div class="signal-lost-panel__cap" aria-hidden="true">
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 37.0039L8.74243e-08 36.0039L72 36.0039V37.0039L0 37.0039Z" fill="currentColor">
+</path>
+<path d="M37.0049 72H36.0049V1.1918e-08L37.0049 0V72Z" fill="currentColor">
+</path>
+<path d="M33 33H40V40H33V33Z" fill="currentColor">
+</path>
+</svg>
+</div>
+<div class="signal-lost-panel__bar-copy">C-702</div>
+<div class="signal-lost-panel__cap" aria-hidden="true">
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 37.0039L8.74243e-08 36.0039L72 36.0039V37.0039L0 37.0039Z" fill="currentColor">
+</path>
+<path d="M37.0049 72H36.0049V1.1918e-08L37.0049 0V72Z" fill="currentColor">
+</path>
+<path d="M33 33H40V40H33V33Z" fill="currentColor">
+</path>
+</svg>
+</div>
+</div>
+<div class="signal-lost-panel__body">
+<div class="signal-lost-panel__message">
+<div class="signal-lost-panel__mark" aria-hidden="true">
+<svg viewBox="0 0 124 124" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M69.2852 0L124 54.7148V108.5L108.5 124H15.5L0 108.5V54.7148L54.6631 0H69.2852ZM10.333 58.9521V113.667H113.667V58.9521L62 7.28516L10.333 58.9521ZM67.167 103.332H56.834V87.832H67.167V103.332ZM67.167 77.499H56.834V25.832H67.167V77.499Z" fill="currentColor">
+</path>
+</svg>
+</div>
+<strong>Connection Lost</strong>
+</div>
+<div class="signal-lost-panel__grid" aria-hidden="true">
+<span data-dead="true">
+<em>NC-1</em>
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="37" y1="4.37114e-08" x2="37" y2="72" stroke="currentColor" stroke-width="2">
+</line>
+<line y1="35" x2="72" y2="35" stroke="currentColor" stroke-width="2">
+</line>
+</svg>
+</span>
+<span data-dead="false">
+<em>NC-2</em>
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="37" y1="4.37114e-08" x2="37" y2="72" stroke="currentColor" stroke-width="2">
+</line>
+<line y1="35" x2="72" y2="35" stroke="currentColor" stroke-width="2">
+</line>
+</svg>
+</span>
+<span data-dead="false">
+<em>NC-3</em>
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="37" y1="4.37114e-08" x2="37" y2="72" stroke="currentColor" stroke-width="2">
+</line>
+<line y1="35" x2="72" y2="35" stroke="currentColor" stroke-width="2">
+</line>
+</svg>
+</span>
+<span data-dead="false">
+<em>NC-4</em>
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="37" y1="4.37114e-08" x2="37" y2="72" stroke="currentColor" stroke-width="2">
+</line>
+<line y1="35" x2="72" y2="35" stroke="currentColor" stroke-width="2">
+</line>
+</svg>
+</span>
+<span data-dead="true">
+<em>NC-5</em>
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="37" y1="4.37114e-08" x2="37" y2="72" stroke="currentColor" stroke-width="2">
+</line>
+<line y1="35" x2="72" y2="35" stroke="currentColor" stroke-width="2">
+</line>
+</svg>
+</span>
+<span data-dead="false">
+<em>NC-6</em>
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="37" y1="4.37114e-08" x2="37" y2="72" stroke="currentColor" stroke-width="2">
+</line>
+<line y1="35" x2="72" y2="35" stroke="currentColor" stroke-width="2">
+</line>
+</svg>
+</span>
+<span data-dead="false">
+<em>NC-7</em>
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="37" y1="4.37114e-08" x2="37" y2="72" stroke="currentColor" stroke-width="2">
+</line>
+<line y1="35" x2="72" y2="35" stroke="currentColor" stroke-width="2">
+</line>
+</svg>
+</span>
+<span data-dead="false">
+<em>NC-8</em>
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="37" y1="4.37114e-08" x2="37" y2="72" stroke="currentColor" stroke-width="2">
+</line>
+<line y1="35" x2="72" y2="35" stroke="currentColor" stroke-width="2">
+</line>
+</svg>
+</span>
+<span data-dead="true">
+<em>NC-9</em>
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="37" y1="4.37114e-08" x2="37" y2="72" stroke="currentColor" stroke-width="2">
+</line>
+<line y1="35" x2="72" y2="35" stroke="currentColor" stroke-width="2">
+</line>
+</svg>
+</span>
+<span data-dead="false">
+<em>NC-10</em>
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="37" y1="4.37114e-08" x2="37" y2="72" stroke="currentColor" stroke-width="2">
+</line>
+<line y1="35" x2="72" y2="35" stroke="currentColor" stroke-width="2">
+</line>
+</svg>
+</span>
+<span data-dead="true">
+<em>NC-11</em>
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="37" y1="4.37114e-08" x2="37" y2="72" stroke="currentColor" stroke-width="2">
+</line>
+<line y1="35" x2="72" y2="35" stroke="currentColor" stroke-width="2">
+</line>
+</svg>
+</span>
+<span data-dead="false">
+<em>NC-12</em>
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="37" y1="4.37114e-08" x2="37" y2="72" stroke="currentColor" stroke-width="2">
+</line>
+<line y1="35" x2="72" y2="35" stroke="currentColor" stroke-width="2">
+</line>
+</svg>
+</span>
+<span data-dead="false">
+<em>NC-13</em>
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="37" y1="4.37114e-08" x2="37" y2="72" stroke="currentColor" stroke-width="2">
+</line>
+<line y1="35" x2="72" y2="35" stroke="currentColor" stroke-width="2">
+</line>
+</svg>
+</span>
+<span data-dead="false">
+<em>NC-14</em>
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="37" y1="4.37114e-08" x2="37" y2="72" stroke="currentColor" stroke-width="2">
+</line>
+<line y1="35" x2="72" y2="35" stroke="currentColor" stroke-width="2">
+</line>
+</svg>
+</span>
+<span data-dead="true">
+<em>NC-15</em>
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="37" y1="4.37114e-08" x2="37" y2="72" stroke="currentColor" stroke-width="2">
+</line>
+<line y1="35" x2="72" y2="35" stroke="currentColor" stroke-width="2">
+</line>
+</svg>
+</span>
+<span data-dead="false">
+<em>NC-16</em>
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="37" y1="4.37114e-08" x2="37" y2="72" stroke="currentColor" stroke-width="2">
+</line>
+<line y1="35" x2="72" y2="35" stroke="currentColor" stroke-width="2">
+</line>
+</svg>
+</span>
+</div>
+<i aria-hidden="true">
+</i>
+<i aria-hidden="true">
+</i>
+<i aria-hidden="true">
+</i>
+<i aria-hidden="true">
+</i>
+</div>
+<div class="signal-lost-panel__bar">
+<div class="signal-lost-panel__cap" aria-hidden="true">
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 37.0039L8.74243e-08 36.0039L72 36.0039V37.0039L0 37.0039Z" fill="currentColor">
+</path>
+<path d="M37.0049 72H36.0049V1.1918e-08L37.0049 0V72Z" fill="currentColor">
+</path>
+<path d="M33 33H40V40H33V33Z" fill="currentColor">
+</path>
+</svg>
+</div>
+<div class="signal-lost-panel__footer">
+<div class="signal-lost-panel__footer-mark" aria-hidden="true">
+<svg viewBox="0 0 40 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.9473 27.88V24.5H18.3143V26.5087C18.3143 27.2666 17.7028 27.88 16.9473 27.88Z" fill="currentColor">
+</path>
+<path d="M10.8436 6.125V9.50499H9.47656V7.49627C9.47656 6.73998 10.0897 6.125 10.8436 6.125Z" fill="currentColor">
+</path>
+<path d="M0 29.2396H3.36967V3.375H1.36708C0.613103 3.375 0 3.98998 0 4.74787V29.2396Z" fill="currentColor">
+</path>
+<path d="M7.7895 27.877C8.71956 27.877 9.47513 27.0597 9.47513 26.0497V9.50781H7.47254C6.71697 9.50781 6.10547 10.1212 6.10547 10.8791V26.0497C6.10547 27.0581 6.85944 27.877 7.7911 27.877H7.7895Z" fill="currentColor">
+</path>
+<path d="M3.36967 29.25H0C0 31.8705 2.12585 34.0013 4.73674 34.0013V30.6213C3.98277 30.6213 3.36967 30.0063 3.36967 29.25Z" fill="currentColor">
+</path>
+<path d="M16.9457 24.4963V27.8763C14.3332 27.8763 12.209 25.7439 12.209 23.125H15.5787C15.5787 23.8813 16.1918 24.4963 16.9457 24.4963Z" fill="currentColor">
+</path>
+<path d="M10.8438 9.50499V6.125C13.4562 6.125 15.5805 8.25737 15.5805 10.8763H12.2108C12.2108 10.12 11.5977 9.50499 10.8438 9.50499Z" fill="currentColor">
+</path>
+<path d="M16.9478 3.3816H3.37305V1.37127C3.37305 0.613376 3.98455 0 4.74012 0H16.9494V3.37999L16.9478 3.3816Z" fill="currentColor">
+</path>
+<path d="M23.051 34.005H4.73633V30.625H24.4165V32.6337C24.4165 33.3916 23.805 34.005 23.0494 34.005H23.051Z" fill="currentColor">
+</path>
+<path d="M18.3145 24.4776H20.3186C21.0742 24.4776 21.6857 23.8642 21.6857 23.1063V4.75H18.3161V24.476L18.3145 24.4776Z" fill="currentColor">
+</path>
+<path d="M15.5787 10.875H12.209V23.1217H15.5787V10.875Z" fill="currentColor">
+</path>
+<path d="M16.9473 3.37999V0C19.5598 0 21.684 2.13237 21.684 4.75126H18.3143C18.3143 3.99498 17.7012 3.37999 16.9473 3.37999Z" fill="currentColor">
+</path>
+<path d="M33.8936 29.25C33.8936 30.0061 34.506 30.6209 35.2598 30.6211V34.001C32.6475 34.0008 30.5234 31.8688 30.5234 29.25H33.8936ZM36.6289 32.6299C36.6289 33.3877 36.0173 34.001 35.2617 34.001V30.6211H36.6289V32.6299ZM38.3145 0C39.2461 0 40 0.791662 40 1.76953V29.2441C40 30.002 39.3884 30.6162 38.6328 30.6162H36.6289V1.76953C36.6289 0.791751 37.3845 0.000144425 38.3145 0ZM29.1562 0.00390625C31.7683 0.00390625 33.8919 2.13559 33.8926 4.75391H33.8936V29.2471H30.5234V4.75488L30.5166 4.61523C30.4512 3.9705 29.9386 3.45628 29.2959 3.39062L29.1562 3.38379H27.791V29.2432C27.791 30.0011 27.1794 30.6152 26.4238 30.6152H24.4219V4.75C24.422 3.99219 25.0335 3.37891 25.7891 3.37891H27.7891V1.37402C27.7891 0.619346 28.4023 0.00390625 29.1562 0.00390625Z" fill="currentColor">
+</path>
+</svg>
+</div>
+<span>error [no signal]</span>
+<span>sys override - signal BARRIER DOWN</span>
+</div>
+<div class="signal-lost-panel__cap" aria-hidden="true">
+<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 37.0039L8.74243e-08 36.0039L72 36.0039V37.0039L0 37.0039Z" fill="currentColor">
+</path>
+<path d="M37.0049 72H36.0049V1.1918e-08L37.0049 0V72Z" fill="currentColor">
+</path>
+<path d="M33 33H40V40H33V33Z" fill="currentColor">
+</path>
+</svg>
+</div>
+</div>
+<div class="signal-lost-glitch" aria-hidden="true">
+<canvas>
+</canvas>
+<canvas>
+</canvas>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="starcore-kernel-section">
+<div class="starcore-monitor-head starcore-gsap-panel">
+<div class="starcore-monitor-title">
+<div class="starcore-monitor-title__copy">
+<span>STAR.CORE</span>
+<span>SYSTEM.MODULE</span>
+</div>
+<img alt="" aria-hidden="true" loading="lazy" width="606" height="74" decoding="async" class="starcore-monitor-title__graphic" style="color:transparent" src="/starcore/monitor-graphic.svg"/>
+</div>
+</div>
+<div class="starcore-module-grid">
+<article class="starcore-module starcore-gsap-panel" data-state="online">
+<div class="starcore-module__top">
+<em>RUNNING</em>
+</div>
+<div class="starcore-module__pid">PID 000</div>
+<h3>KERNEL</h3>
+<strong>CORE/KERNEL</strong>
+<ul>
+<li data-line-state="online">
+<span>Core Scheduler</span>
+<em>ONLINE</em>
+</li>
+<li data-line-state="processing">
+<span>Identity Queue</span>
+<em>PROCESSING</em>
+</li>
+<li data-line-state="online">
+<span>Memory Map</span>
+<em>ONLINE</em>
+</li>
+<li data-line-state="online">
+<span>Session Bus</span>
+<em>ONLINE</em>
+</li>
+</ul>
+</article>
+<article class="starcore-module starcore-gsap-panel" data-state="online">
+<div class="starcore-module__top">
+<em>RUNNING</em>
+</div>
+<div class="starcore-module__pid">PID 101</div>
+<h3>MEDIA</h3>
+<strong>MEDIA/STREAM</strong>
+<ul>
+<li data-line-state="online">
+<span>Media Carrier</span>
+<em>ONLINE</em>
+</li>
+<li data-line-state="masked">
+<span>Route Mask</span>
+<em>MASKED</em>
+</li>
+<li data-line-state="processing">
+<span>Catalog Shadow</span>
+<em>PROCESSING</em>
+</li>
+<li data-line-state="masked">
+<span>[MASKED] / channel</span>
+<em>MASKED</em>
+</li>
+</ul>
+</article>
+<article class="starcore-module starcore-gsap-panel" data-state="online">
+<div class="starcore-module__top">
+<em>RUNNING</em>
+</div>
+<div class="starcore-module__pid">PID 204</div>
+<h3>CYBER ACME</h3>
+<strong>SECURITY/CYBER_ACME</strong>
+<ul>
+<li data-line-state="processing">
+<span>Challenge Gate</span>
+<em>PROCESSING</em>
+</li>
+<li data-line-state="online">
+<span>Cipher Route</span>
+<em>ONLINE</em>
+</li>
+<li data-line-state="processing">
+<span>Auth Handshake</span>
+<em>PROCESSING</em>
+</li>
+<li data-line-state="processing">
+<span>[REDACTED] verdict</span>
+<em>PROCESSING</em>
+</li>
+</ul>
+</article>
+<article class="starcore-module starcore-gsap-panel" data-state="offline">
+<div class="starcore-module__top">
+<em>OFFLINE</em>
+</div>
+<div class="starcore-module__pid">PID 302</div>
+<h3>IDENTITY</h3>
+<strong>SECURITY/IDENTITY</strong>
+<ul>
+<li data-line-state="offline">
+<span>NO RESPONSE</span>
+<em>OFFLINE</em>
+</li>
+<li data-line-state="offline">
+<span>NULL RETURN</span>
+<em>OFFLINE</em>
+</li>
+<li data-line-state="masked">
+<span>[MASKED]</span>
+<em>MASKED</em>
+</li>
+</ul>
+</article>
+<article class="starcore-module starcore-gsap-panel" data-state="offline">
+<div class="starcore-module__top">
+<em>OFFLINE</em>
+</div>
+<div class="starcore-module__pid">PID 418</div>
+<h3>PEONIA</h3>
+<strong>VISUAL/PEONIA</strong>
+<ul>
+<li data-line-state="offline">
+<span>WAKE FAILED</span>
+<em>OFFLINE</em>
+</li>
+<li data-line-state="offline">
+<span>NULL RETURN</span>
+<em>OFFLINE</em>
+</li>
+</ul>
+</article>
+<article class="starcore-module starcore-gsap-panel" data-state="error">
+<div class="starcore-module__top">
+<em>ERROR</em>
+</div>
+<div class="starcore-module__pid">PID 509</div>
+<h3>SENTINEL</h3>
+<strong>SECURITY/SENTINEL</strong>
+<ul>
+<li data-line-state="error">
+<span>EXCEPTION</span>
+<em>ERROR</em>
+</li>
+<li data-line-state="failed">
+<span>CHECKSUM FAILED</span>
+<em>FAILED</em>
+</li>
+<li data-line-state="rejected">
+<span>REPAIR REJECTED</span>
+<em>REJECTED</em>
+</li>
+<li data-line-state="error">
+<span>[MASKED] / TRACE</span>
+<em>ERROR</em>
+</li>
+</ul>
+</article>
+</div>
+</section>
+<footer class="starcore-footer">
+<div class="starcore-footer-stripes starcore-footer-stripes--mobile" aria-hidden="true">
+</div>
+<p class="starcore-footer-count starcore-gsap-panel">(03)</p>
+<h3 class="starcore-footer-heading starcore-gsap-panel">SOCIAL MEDIA</h3>
+<ul class="starcore-footer-links starcore-footer-links--signal starcore-gsap-panel">
+<li>
+<span class="starcore-footer-link starcore-footer-link--lost" aria-disabled="true">
+<span>SIGNAL LOST</span>
+<em>[#]</em>
+</span>
+</li>
+<li>
+<span class="starcore-footer-link starcore-footer-link--lost" aria-disabled="true">
+<span>SIGNAL LOST</span>
+<em>[o]</em>
+</span>
+</li>
+<li>
+<span class="starcore-footer-link starcore-footer-link--lost" aria-disabled="true">
+<span>SIGNAL LOST</span>
+<em>[x]</em>
+</span>
+</li>
+</ul>
+<p class="starcore-footer-copy starcore-gsap-panel">A NAME. A LOCK. A LIGHT LEFT BURNING. THAT IS ALL IT TAKES. NOT A MIRACLE. NOT A MACHINE. THE FIRST DOOR WAS NEVER OPENED. IT WAS TAKEN OFF ITS HINGES.</p>
+<div class="starcore-footer-partners starcore-gsap-panel" aria-label="Partner companies">
+<div class="starcore-footer-partner">
+<img alt="06ae415b" loading="lazy" width="112" height="112" decoding="async" style="color:transparent" src="/a/06ae415b.png"/>
+</div>
+<div class="starcore-footer-partner">
+<img alt="e4e71867" loading="lazy" width="220" height="120" decoding="async" style="color:transparent" src="/a/e4e71867.png"/>
+</div>
+<div class="starcore-footer-partner">
+<img alt="8c395b8a" loading="lazy" width="230" height="70" decoding="async" style="color:transparent" src="/a/8c395b8a.png"/>
+</div>
+</div>
+<div class="starcore-footer-stripes starcore-footer-stripes--side" aria-hidden="true">
+</div>
+<div class="starcore-footer-copyright starcore-gsap-panel">
+<div class="starcore-footer-uesc">
+<img alt="UESC" loading="lazy" width="112" height="112" decoding="async" style="color:transparent" src="/a/ae519fac.png"/>
+</div>
+<div class="starcore-footer-brand">
+<img alt="STAR.CORE" loading="lazy" width="220" height="120" decoding="async" style="color:transparent" src="/img/staremby_logo_master.png"/>
+</div>
+<p>STAR.CORE © 2026. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="starcore-footer-end-logo starcore-gsap-panel">
+<img alt="STAR.CORE" loading="lazy" width="230" height="70" decoding="async" style="color:transparent" src="/img/logo-end.png"/>
+</div>
+</footer>
+</section>
+</main>
+</body>
+</html>
+

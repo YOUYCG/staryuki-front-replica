@@ -1,0 +1,24 @@
+/* Local behavior and accessibility additions; visual design is preserved. */
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #000; }
+.skip-link { position: fixed; top: -60px; left: 16px; z-index: 100; padding: 12px 20px; background: #c0fe04; color: #000; font-family: monospace; }
+.skip-link:focus { top: 10px; }
+:focus-visible { outline: 2px solid #c0fe04; outline-offset: 5px; }
+
+
+.marathon-menu-button { cursor: pointer; }
+.marathon-mobile-menu.is-open { visibility: visible; opacity: 1; pointer-events: auto; transform: translateY(0); }
+.marathon-module, .starcore-module { transition: border-color .25s, background-color .25s; }
+.starcore-module:hover { border-color: #c0fe0470; }
+.peonia-hero-canvas { touch-action: pan-y; }
+.replica-reveal { opacity: 0; transform: translateY(24px); transition: opacity .55s ease, transform .55s ease; }
+.replica-reveal.is-visible { opacity: 1; transform: translateY(0); }
+.signal-lost-panel__grid > span { transition: opacity .18s; }
+.signal-lost-panel__grid > span[data-dead="true"] { opacity: .24; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .replica-reveal { opacity: 1; transform: none; }
+  .peonia-hero-loader { display: none; }
+}
+

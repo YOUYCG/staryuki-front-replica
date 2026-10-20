@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1254" height="1254" viewBox="0 0 1254 1254" fill="none">
+  <g id="star_frame" aria-label="Star Frame">
+    <path d="M 164,402 164,536 379,723 293,1018 293,1096 404,1096 630,921 850,1096 961,1096 961,1018 875,723 1095,537 1095,401 807,401 686,145 576,145 455,401 Z M 250,483 505,483 629,224 755,482 1010,482 792,694 855,980 631,819 408,980 471,694 250,501 Z" fill="#C0FE04" fill-rule="evenodd" clip-rule="evenodd"/>
+  </g>
+  <g id="accent_top_right" aria-label="Accent Top Right">
+    <polygon points="1009,190 948,190 827,313 827,363 886,361 1009,237" fill="#C0FE04"/>
+  </g>
+  <g id="accent_bottom_left" aria-label="Accent Bottom Left">
+    <polygon points="327,760 280,760 159,882 159,937 203,937 327,812" fill="#C0FE04"/>
+  </g>
+</svg>

@@ -1,0 +1,24 @@
+{
+  "provenance": "Local synthesis based on observed public launcher SFX events; original recordings unavailable (HTTP 502).",
+  "sounds": {
+    "sfx_boot_typewriter": "/audio/sfx_boot_typewriter.wav",
+    "sfx_boot_scramble_out": "/audio/sfx_boot_scramble_out.wav",
+    "sfx_boot_glitch_in": "/audio/sfx_boot_glitch_in.wav",
+    "sfx_boot_shuffle_settle": "/audio/sfx_boot_shuffle_settle.wav",
+    "sfx_global_transition": "/audio/sfx_global_transition.wav",
+    "sfx_key_cursor_move": "/audio/sfx_key_cursor_move.wav",
+    "sfx_key_backspace": "/audio/sfx_key_backspace.wav",
+    "sfx_key_capture": "/audio/sfx_key_capture.wav",
+    "sfx_key_flight": "/audio/sfx_key_flight.wav",
+    "sfx_key_land": "/audio/sfx_key_land.wav",
+    "sfx_verify_submit": "/audio/sfx_verify_submit.wav",
+    "sfx_verify_scan": "/audio/sfx_verify_scan.wav",
+    "sfx_access_denied": "/audio/sfx_access_denied.wav",
+    "sfx_deny_wave": "/audio/sfx_deny_wave.wav",
+    "sfx_deny_recover": "/audio/sfx_deny_recover.wav",
+    "sfx_access_granted": "/audio/sfx_access_granted.wav",
+    "sfx_granted_slot_fill": "/audio/sfx_granted_slot_fill.wav",
+    "sfx_granted_shuffle": "/audio/sfx_granted_shuffle.wav",
+    "sfx_debris_hover": "/audio/sfx_debris_hover.wav"
+  }
+}
